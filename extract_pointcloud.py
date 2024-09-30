@@ -9,13 +9,13 @@ import argparse
 
 def save_to_csv(cloud, csv_filename):
     field_names = [field.name for field in cloud.fields]
-    print("Campos disponibles:", field_names)
+    # print("Campos disponibles:", field_names)
     
     with open(csv_filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(field_names)
         for point in pc2.read_points(cloud, field_names=field_names, skip_nans=True):
-            print(point)
+            # print(point)
             csv_writer.writerow(point)
 
 def extract_pointclouds_from_bag(bag_filename, topic, csv_dir):
